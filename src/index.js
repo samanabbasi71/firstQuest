@@ -1,13 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import { BrowserRouter as Router } from 'react-router-dom'
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import {TourProvider} from './context'
 
 ReactDOM.render(
-  <React.StrictMode>
+  <TourProvider>
+    <Router>
     <App />
-  </React.StrictMode>,
+    </Router>
+  </TourProvider>,
   document.getElementById('root')
 );
 

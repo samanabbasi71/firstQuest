@@ -1,0 +1,402 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-family: 'Roboto Condensed', sans-serif;
+}
+// special
+.p-3 {
+    padding: 1rem;
+}
+// main page
+.main {
+
+}
+// 
+.loading {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: rgba(#fff, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.loading-icon {
+    font-size: 0.5rem;
+}
+// 
+.main-header {
+    min-height: calc(30vh);
+    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('./img/0FD3CEBF-9D4C-4A11-A641-8860293AFB1F.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    transition: all 0.3s ease-in-out;
+    color: #fff;
+    text-transform: capitalize;
+    padding: 1.5rem 1.5rem 4rem;
+    font-size: 1.3rem;
+    line-height: 35px;
+}
+// @media screen and (min-width: 552px) {
+//     .main-header {
+//         min-height: calc(100vh);
+//     }
+// }
+@media screen and (min-width: 768px) {
+    .main-header {
+        min-height: calc(50vh);
+    }
+}
+// @media screen and (min-width: 992px) {
+//     .main-header {
+//         min-height: calc(60vh);
+//     }
+// }
+// 
+
+.header {
+    min-height: calc(120vh);
+    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('./img/0FD3CEBF-9D4C-4A11-A641-8860293AFB1F.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    transition: all 0.3s ease-in-out;
+    color: #fff;
+    text-transform: capitalize;
+    padding: 1.5rem 1.5rem 4rem;
+    font-size: 1.3rem;
+    line-height: 35px;
+}
+@media screen and (min-width: 552px) {
+    .header {
+        min-height: calc(100vh);
+    }
+}
+@media screen and (min-width: 768px) {
+    .header {
+        min-height: calc(80vh);
+    }
+}
+@media screen and (min-width: 992px) {
+    .header {
+        min-height: calc(60vh);
+    }
+}
+// filter
+
+// tour
+.tours {
+    width: 95%;
+    margin: 2rem auto;
+}
+.tour {
+    margin: 2rem 0;
+    width: 100%;
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 2rem;
+    border: 1px solid #e5e5e5;
+    box-shadow: 2px 4px 2px 4px #e5e5e5;
+}
+.tour-link {
+    text-decoration: none;
+    color: black;
+}
+
+
+.tour-img {
+    height: 30px;
+    width: 30px;
+}
+
+@media screen and (min-width: 768px) {
+    .tours {
+        margin: 2rem auto 0 2rem;
+        width: 720px;
+    }
+    .tour {
+        width: 40rem;
+    }
+}
+// tourpage
+
+.breadcrumb {
+    display: flex;
+
+}
+.breadcrumb-p {
+    padding: 0 10px;
+}
+.breadcrumb-link {
+    text-decoration: none;
+    color: blue;
+    transition: all 0.3s ease;
+    &:hover {
+        text-decoration: none;
+        color: #fff;
+    }
+}
+.header-title {
+    margin: 0.8rem 0;
+    line-height: 50px;
+    padding: 0 1rem;
+    text-transform: uppercase;
+}
+.header-about {
+    text-align: justify;
+    text-justify: inter-word;
+}
+.header-anchor{
+    color: #fff;
+    &:focus {
+        color: #fff;
+    }
+}
+.tour-content {
+    padding: 2rem;
+}
+.tour-section {
+
+}
+.tour-section-title {
+    color: black;
+    font-weight: bolder;
+    font-size: 20px;
+    text-transform: capitalize;
+}
+.tour-section-info {
+    margin: 1rem 0 2rem;
+}
+.tour-cards {
+    display: flex;
+    flex-direction: column;
+}
+.tour-card {
+    text-decoration: none;
+    color: black;
+    background-color: #fff;
+    box-shadow: 3px 2px 3px 2px (rgba(119, 119, 119, 0.3));
+    border: 1px solid grey;
+    border-radius: 10px;
+    padding: 1rem;
+    margin: 0 1rem 1rem 0;
+    &:focus {
+        color: black;
+    }
+}
+.tour-card-bottom {
+    color: red;
+    span {
+        font-weight: bolder;
+        font-size: 20px;
+        padding: 5px 0;
+    }
+}
+@media screen and (min-width: 768px) {
+    .tour-cards {
+        display: flex;
+        flex-direction: row;
+    }
+    .tour-card {
+        flex: 1 1 49%;
+    }
+}
+// filters
+.filters {
+    position: relative;
+    padding: 1rem 0 0;
+    border-top: 2px solid rgb(230, 229, 229);
+    border-bottom: 2px solid rgb(230, 229, 229);
+}
+.filter-section {
+    margin: 0 auto;
+    width: 95%;
+}
+.filter-form {
+    display: flex;
+    flex-direction: column;
+}
+.filter {
+    width: 100%;
+    margin: 0 auto 1rem;
+}
+.filter-select {
+    width: 100%;
+    padding: 10px;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid rgb(240, 239, 239);
+    font-size: 16px;
+    cursor: pointer;
+    appearance: none;
+    &:active {
+        outline: none;
+    }
+}
+.filter-option {
+    font-size: 16px;
+    cursor: pointer;
+}
+.filter-label {
+    display: block;
+    color: gray;
+    padding: 0 0 5px;
+    text-transform: capitalize;
+}
+.search-link {
+    text-decoration: none;
+    text-transform: capitalize;
+    box-shadow: none;
+}
+.search-btn {
+    display: block;
+    width: 100%;
+    margin: 0 auto 1rem;
+    text-transform: capitalize;
+    padding: 15px;
+    border-radius: 5px;
+    font-size: 20px;
+    background-color: rgba($color: orangered, $alpha: 0.7);
+    border: none;
+    outline: none !important;
+    box-shadow: none;
+    color: #fff;
+    cursor: pointer;
+}
+.pair-select {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    .filter-select {
+        width: 97%;
+    }
+}
+.home-header-about {
+    display: none;
+}
+
+@media screen and (min-width: 768px) {
+    .filter-section {
+        margin: 0 auto 0 2rem;
+        width: 720px;
+    }
+    .filter-form {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: flex-start;
+    }
+    .filter {
+        margin-right: 10px;
+        width: 60%;
+    }
+    .filter-select {
+        width: 100%;
+    }
+    .filter-label {
+        display: none;
+    }
+    .pair-select {
+        width: 130%;
+    }
+    .search-btn {
+        padding: 10px;
+    }
+    .search-btn {
+        width: 100%;
+    }
+    .home-header-about {
+        display: block;
+    }
+}
+
+// 
+select:required:invalid {
+    color: gray;
+  }
+  option[value=""][disabled] {
+    display: none;
+  }
+  option {
+    color: black;
+  }
+// 
+// checkboxes
+/* The container */
+.checkbox-container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 16px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  /* Hide the browser's default checkbox */
+  .checkbox-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  /* Create a custom checkbox */
+  .checkbox-checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #fff;
+    border: 1px solid var(--mainDark);
+    border-radius: 5px;
+  }
+  
+  /* On mouse-over, add a grey background color */
+  .checkbox-container:hover input ~ .checkbox-checkmark {
+    background-color: #fff;
+  }
+  
+  /* When the checkbox is checked, add a blue background */
+  .checkbox-container input:checked ~ .checkbox-checkmark {
+    background-color: #fff;
+  }
+  
+  /* Create the checkmark/indicator (hidden when not checked) */
+  .checkbox-checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  /* Show the checkmark when checked */
+  .checkbox-container input:checked ~ .checkbox-checkmark:after {
+    display: block;
+  }
+  
+  /* Style the checkmark/indicator */
+  .checkbox-container .checkbox-checkmark:after {
+    left: 7px;
+    top: 0px;
+    width: 10px;
+    height: 18px;
+    border: solid orange;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
