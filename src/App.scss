@@ -230,7 +230,7 @@ html {
 }
 .filter-select {
     width: 100%;
-    padding: 10px;
+    padding: 8px;
     outline: none;
     border-radius: 5px;
     border: 1px solid rgb(240, 239, 239);
@@ -259,11 +259,11 @@ html {
 .search-btn {
     display: block;
     width: 100%;
-    margin: 0 auto 1rem;
+    margin: 0 auto 1rem auto;
     text-transform: capitalize;
-    padding: 15px;
+    padding: 8px;
     border-radius: 5px;
-    font-size: 20px;
+    font-size: 16px;
     background-color: rgba($color: orangered, $alpha: 0.7);
     border: none;
     outline: none !important;
@@ -273,21 +273,23 @@ html {
 }
 .pair-select {
     width: 100%;
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 1rem;
+    // justify-content: space-between;
     margin: 0 auto;
-    .filter-select {
-        width: 97%;
-    }
+    // .filter-select {
+    //     width: 97%;
+    // }
 }
 .home-header-about {
     display: none;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 992px) {
     .filter-section {
         margin: 0 auto 0 2rem;
-        width: 720px;
+        width: 920px;
     }
     .filter-form {
         display: flex;
@@ -297,7 +299,10 @@ html {
     }
     .filter {
         margin-right: 10px;
-        width: 60%;
+        width: 100%;
+    }
+    .searchbox {
+        width: 100%;
     }
     .filter-select {
         width: 100%;
@@ -306,13 +311,12 @@ html {
         display: none;
     }
     .pair-select {
-        width: 130%;
-    }
-    .search-btn {
-        padding: 10px;
+        width: 160%;
     }
     .search-btn {
         width: 100%;
+        margin: 0 auto 0 1rem;
+        padding: 10px;
     }
     .home-header-about {
         display: block;

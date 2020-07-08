@@ -1,23 +1,27 @@
 import React from 'react'
 import {useContext} from 'react'
+import Select from 'react-select';
 import {TourContext} from '../context'
 import {Link} from 'react-router-dom'
 import Loading from './Loading'
+import BudgetRange from '../components/BudgetRange'
 
 // get all unique values
 const getUnique = (value) => {
     return [...new Set(value)]
 }
 export default function Filters() {
-    const context = useContext(TourContext)
 
+    const context = useContext(TourContext)
         const {
             tours,
             loading,
             handleChange,
             name,
             days,
-            budget
+            budget,
+            handleName,
+            selectedOption
         } = context
 
         if (loading) {
@@ -35,19 +39,38 @@ export default function Filters() {
         // get unique cities
         destinations = getUnique(destinations)
         destinations = ['All', ...destinations]
-        console.log(destinations);
-        destinations = destinations.map((item, index) => {
-            return (
-                <option key={index} value={item} className="filter-option">
-                    {item}
-                </option>
-            )
-        })
+        let options = []
+        for(let i = 0; i < destinations.length; i++){
+            let name = destinations[i]
+            let index = i
+            let city = {
+                value: name,
+                label: name
+            }
+            options.push(city)
+        }
+        // options = destinations.map((item, index) => {
+        //     return <option key={index} value={item} > {item} </option>
+        // })
+        console.log(options);
+        
         return (
             <div className="filters">
                 <section className="filter-section">
         <form className="filter-form">
-        <div className="filter">
+            <div className="filter">
+        <Select
+        value={selectedOption}
+        onChange={handleName}
+        options={options}
+        isMulti
+        isSearchable
+        name='name'
+        id='name'
+        isClearable={false}
+      />
+       </div>
+        {/* <div className="filter">
         <p className="filter-label">preferred destinations</p>
             <select className="filter-ul" value={name} name="name" id="name" onChange={handleChange} 
             className="filter-select" required
@@ -55,8 +78,9 @@ export default function Filters() {
             <option value="" disabled selected>Select Iran Cities</option>
                     {destinations}
             </select>
-        </div>
-    <div className="filter">
+        </div>  */}
+        {/* <BudgetRange /> */}
+     <div className="filter">
     <p className="filter-label">duration</p>
         <select value={days} id="days" name="days" onChange={handleChange}
         className="filter-select" required
@@ -76,7 +100,7 @@ export default function Filters() {
             </option>
         </select>
     </div> 
-<div className="pair-select">
+ <div className="pair-select">
 <div className="filter">
 <p className="filter-label">budget range</p>
         <select value={budget} id="budget" name="budget"
@@ -98,7 +122,7 @@ export default function Filters() {
         </select>
     </div> 
     {/* travelers */}
-    <div className="filter">
+     <div className="filter">
         <p className="filter-label">travelers</p>
         <select id="travelers" name="travelers"
         className="filter-select"
@@ -121,7 +145,7 @@ export default function Filters() {
             </option>
         </select>
     </div> 
-    </div>
+    </div> 
     {/* test */}
 
     <Link to="/results" className="search-link">
@@ -133,4 +157,4 @@ export default function Filters() {
 </section>
 </div>
 )
-        }
+}

@@ -11,23 +11,6 @@ export default class TourPage extends Component {
         }
     }
     static contextType = TourContext
-    getDetails = async () => {
-        try {
-            fetch(`https://1stquest.com/api/plan/v1/itineraries/${this.state.slug}`).then(res => {
-                return res.json()
-            }).then(res => {
-            let response = res.data
-            let toursDetail = response
-        console.log(toursDetail);
-            })
-        } catch (error) {
-            console.log(error);
-            
-        }
-    }
-    componentDidMount() {
-        this.getDetails()
-    }
     render() {
         const {getTour} = this.context
         const Tour = getTour(this.state.slug)
@@ -37,8 +20,17 @@ export default class TourPage extends Component {
         }
         const {
             title,
-            overView
+            overView,
+            cities
         } = Tour
+        console.log(cities);
+            let citiesName = cities[0].name
+            let citiesImages = cities[0].images
+            let image = citiesImages.map(item => item.src)
+            console.log(image[0]);
+
+        
+        
         return (
             <div className="tourpage__container">
                 <header className="header">
@@ -63,48 +55,92 @@ export default class TourPage extends Component {
                         <a href="#story" className="header-anchor">read story of this on</a>
                     </div>
                 </header>
-                <div className="tour-content">
-                    <section className="tour-section" id="visa">
-                        <p className="tour-section-title">
-                            get iran e-visa and travel insurance
-                        </p>
-                        <p className="tour-section-info">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque rerum dicta accusamus, excepturi omnis voluptatum minus fuga dolorem blanditiis tempora.
-                        </p>
-                        <div className="tour-cards">
-                            <Link to="#" className="tour-card">
-                                <div className="tour-card-top">
-                                    <p className="tour-section-title">
-                                    <span className="tour-card-icon">
-                                        <i className="fa fa-book"></i>
-                                    </span> iran visa aplication form
+                <div className="tour-content"  >
+                        <section className="tour-section" id="visa">
+                            <p className="tour-section-title">
+                                get iran e-visa and travel insurance
+                            </p>
+                            <p className="tour-section-info">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum deleniti nemo iste provident fuga delectus tempora eius voluptates recusandae ut ea corporis commodi iure, quibusdam exercitationem animi iusto, alias quasi perferendis accusamus labore inventore voluptas eveniet facilis. Nemo numquam officia itaque. Debitis placeat ipsum consequatur ut odit maiores veritatis praesentium?
+                            </p>
+                            <div className="tour-cards">
+                                <Link to="#" className="tour-card">
+                                    <div className="tour-card-top">
+                                        <p className="tour-section-title">
+                                        <span className="tour-card-icon">
+                                            <i className="fa fa-book"></i>
+                                        </span> iran online visa aplication form
+                                        </p>
+                                    </div>
+                                    <p className="tour-card-bottom">
+                                        between $ <span>19</span> - $ <span>29</span>
                                     </p>
-                                    <span className="tour-card-icon">
-                                        <i className="fa fa-book"></i>
-                                    </span>
-                                </div>
-                                <p className="tour-card-bottom">
-                                    between $ <span>19</span> - $ <span>29</span>
-                                </p>
-                            </Link>
-                            <Link to="#" className="tour-card">
-                                <div className="tour-card-top">
-                                    <p className="tour-section-title">
-                                    <span className="tour-card-icon">
-                                        <i className="fa fa-book"></i>
-                                    </span> iran visa aplication form
+                                </Link>
+                                <Link to="#" className="tour-card">
+                                    <div className="tour-card-top">
+                                        <p className="tour-section-title">
+                                        <span className="tour-card-icon">
+                                            <i className="fa fa-shield"></i>
+                                        </span> iran travel insurance
+                                        </p>
+                                    </div>
+                                    <p className="tour-card-bottom">
+                                        between $ <span>19</span> - $ <span>29</span>
                                     </p>
-                                    <span className="tour-card-icon">
-                                        <i className="fa fa-book"></i>
-                                    </span>
-                                </div>
-                                <p className="tour-card-bottom">
-                                    between $ <span>19</span> - $ <span>29</span>
-                                </p>
-                            </Link>
-                        </div>
-                    </section>
-                </div>
+                                </Link>
+                            </div>
+                        </section>
+                    </div>
+                {
+                    cities.map((item, index)=> {
+                        return (
+                        <div className="tour-content" key={index} >
+                        <section className="tour-section" id="visa">
+                            <p className="tour-section-title">
+                                {item.name}
+                            </p>
+                            <p>{item.days} days</p>
+                            <p className="tour-section-info">
+                                {item.thingsToDo}
+                            </p>
+                        <div>{item.images.map((item, index )=> {
+                            return <img src={item.src} key={index} />
+                        })}</div>
+                            <div className="tour-cards">
+                                <Link to="#" className="tour-card">
+                                    <div className="tour-card-top">
+                                        <p className="tour-section-title">
+                                        <span className="tour-card-icon">
+                                            <i className="fa fa-car"></i>
+                                        </span> pick-up
+                                        </p>
+                                    </div>
+                                    <p>
+                                        From Airport To Hotel
+                                    </p>
+                                    <p className="tour-card-bottom">
+                                        $ 19
+                                    </p>
+                                </Link>
+                                <Link to="#" className="tour-card">
+                                    <div className="tour-card-top">
+                                        <p className="tour-section-title">
+                                        <span className="tour-card-icon">
+                                            <i className="fa fa-building"></i>
+                                        </span> Hotel
+                                        </p>
+                                    </div>
+                                    <p>Grand Hotel {item.name} </p>
+                                    <p className="tour-card-bottom">
+                                        between $ <span>19</span> - $ <span>29</span>
+                                    </p>
+                                </Link>
+                            </div>
+                        </section>
+                    </div>
+                        )
+                    })
+                }
             </div>
         )
     }

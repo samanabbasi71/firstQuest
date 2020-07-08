@@ -8,7 +8,8 @@ export default class TourProvider extends Component {
         loading: true,
         days: '',
         name: '',
-        budget: ''
+        budget: '',
+        selectedOption: null
     }
     // get tours
     getTours = async () => {
@@ -66,12 +67,29 @@ export default class TourProvider extends Component {
         const value = target.type === 'checkbox' ? 
         target.checked : target.value
         const name = event.target.name
+        console.log(value);
         
         this.setState({
             [name]: value
         }, this.filtering)
         
     }
+    handleName = selectedOption => {
+        if(selectedOption){
+        for(let i = 0; i < selectedOption.length; i++){
+            let names = selectedOption[i].value
+            this.setState({ 
+                selectedOption,
+                name: names
+             }, this.filtering);
+        }
+    } else {
+        this.setState({
+            selectedOption: null,
+            name: ''
+        }, this.filtering)
+    }
+}
 
     filtering = () => {
         let {
@@ -80,7 +98,8 @@ export default class TourProvider extends Component {
             loading,
             days,
             price,
-            budget
+            budget,
+            selectedOption
         } = this.state
 
         price = parseInt(price)
@@ -147,7 +166,8 @@ export default class TourProvider extends Component {
             <TourContext.Provider value={{
                 ...this.state,
                 getTour: this.getTour,
-                handleChange: this.handleChange
+                handleChange: this.handleChange,
+                handleName: this.handleName
             }}>
                 {this.props.children}
             </TourContext.Provider>
