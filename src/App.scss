@@ -201,6 +201,14 @@ html {
         padding: 5px 0;
     }
 }
+.tour-section-info {
+    text-align: justify;
+    text-justify: inter-word;
+}
+.tour-content {
+    width: 90%;
+    margin: 0 auto;
+}
 @media screen and (min-width: 768px) {
     .tour-cards {
         display: flex;
@@ -208,6 +216,14 @@ html {
     }
     .tour-card {
         flex: 1 1 49%;
+    }
+    .tour-content {
+        width: 720px;
+    }
+}
+@media screen and (min-width: 992px) {
+    .tour-content {
+        width: 90%;
     }
 }
 .tourpage-images {
