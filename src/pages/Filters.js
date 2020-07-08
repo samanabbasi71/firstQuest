@@ -23,9 +23,9 @@ export default function Filters() {
             selectedOption
         } = context
 
-        if (loading) {
-            return <Loading />
-        } 
+        // if (loading) {
+        //     return <Loading />
+        // } 
         let names = []
         names = tours.map(tour => {
             return tour.cities.map(city => {

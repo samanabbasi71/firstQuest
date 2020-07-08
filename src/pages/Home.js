@@ -10,9 +10,9 @@ export default function Home() {
     const {
         loading
     } = context
-    if (loading) {
-        return <Loading />
-    } 
+    // if (loading) {
+    //     return <Loading />
+    // } 
     return (
         <React.Fragment>
         <header className="main-header">
