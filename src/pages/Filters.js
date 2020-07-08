@@ -4,7 +4,6 @@ import Select from 'react-select';
 import {TourContext} from '../context'
 import {Link} from 'react-router-dom'
 import Loading from './Loading'
-import BudgetRange from '../components/BudgetRange'
 
 // get all unique values
 const getUnique = (value) => {
