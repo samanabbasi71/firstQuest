@@ -99,13 +99,21 @@ export default class TourPage extends Component {
                             <p className="tour-section-title">
                                 {item.name}
                             </p>
-                            <p>{item.days} days</p>
+                            <p>{item.days} Days</p>
                             <p className="tour-section-info">
                                 {item.thingsToDo}
                             </p>
-                        <div>{item.images.map((item, index )=> {
-                            return <img src={item.src} key={index} />
-                        })}</div>
+                        <div className="tourpage-images">
+                            {item.images.map((item, index )=> {
+                            return <img src={item.src} key={index} className="tourpage-img" />
+                            })}
+                            {/* <a to="#" className="tourpage-images-link">
+                                        learn more about {item.name}
+                            </a> */}
+                        </div>
+                        <p className="tour-section-info">
+                            cost and services in {item.name}
+                        </p>
                             <div className="tour-cards">
                                 <Link to="#" className="tour-card">
                                     <div className="tour-card-top">
